@@ -1,0 +1,16 @@
+#controllers:
+#    resource:
+#        path: ../src/Controller/
+#        namespace: App\Controller
+#    type: attribute
+
+user_request:
+    path: /user
+    controller: App\Controller\UserController::request
+    methods: [GET, POST]
+
+controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: annotation

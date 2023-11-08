@@ -24,3 +24,11 @@ services:
       - './app:/app'
     depends_on:
       - mariadb
+  composer:
+    image: composer
+    volumes:
+      - './app:/app'
+    working_dir: /app
+    command: ["require", "symfony/twig-bundle"]
+    depends_on:
+      - symfony
