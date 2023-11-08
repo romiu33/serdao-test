@@ -1,0 +1,62 @@
+# Introduction
+To set up the test, you will require Docker. If you are not familiar with it or don't want to install it,
+you can instead install symfony and set up a new empty project then jump straight to the step "Verifying installation".
+Here is the documentation to install symfony: https://symfony.com/doc/current/setup.html
+
+# Install Docker
+Follow the link corresponding to your operating system:
+- Linux: https://docs.docker.com/engine/install/#server (follow the link that correspond to your linux distro)
+- Mac: https://docs.docker.com/desktop/install/mac-install/
+- Windows: https://docs.docker.com/desktop/install/windows-install/
+
+# Set up the project
+    docker compose up symfony
+
+You should get the following output:
+    symfony 10:03:33.26
+    symfony 10:03:33.26 Welcome to the Bitnami symfony container
+    symfony 10:03:33.26 Subscribe to project updates by watching https://github.com/bitnami/containers
+    symfony 10:03:33.26 Submit issues and feature requests at https://github.com/bitnami/containers/issues
+    symfony 10:03:33.27 
+    symfony 10:03:33.27 INFO  ==> ** Running Symfony setup **
+    symfony 10:03:33.28 INFO  ==> Configuring PHP options
+    symfony 10:03:33.28 INFO  ==> Setting PHP opcache.enable option
+    symfony 10:03:33.29 INFO  ==> Setting PHP expose_php option
+    symfony 10:03:33.29 INFO  ==> Setting PHP output_buffering option
+    symfony 10:03:33.30 INFO  ==> Validating settings in MYSQL_CLIENT_* env vars
+    symfony 10:03:33.31 INFO  ==> Validating settings in SYMFONY_* environment variables...
+    symfony 10:03:33.32 WARN  ==> You set the environment variable ALLOW_EMPTY_PASSWORD=yes. For safety reasons, do not use this flag in a production environment.
+    symfony 10:03:33.32 INFO  ==> Copying symfony/skeleton project files to /app
+    symfony 10:03:33.63 INFO  ==> Trying to connect to the database server
+    symfony 10:03:33.64 INFO  ==> Trying to install required Symfony packs
+    symfony 10:03:41.16 INFO  ==> ** Symfony setup finished! **
+
+    symfony 10:03:41.17 INFO  ==> ** Starting Symfony project **
+    [Sat Oct  7 10:03:41 2023] PHP 8.2.11 Development Server (http://0.0.0.0:8000) started
+
+# Verifying installation
+Open http://localhost:8000, you should be greeted with "Welcome to Symfony 6.3.4".
+
+# Copy the files
+Copy the following files:
+- serdao-test-files/UserController.php => app/src/Controller/
+- serdao-test-files/user.html.twig => app/templates/
+
+# Test the application
+Now that the files are copied, open http://localhost:8000/user . You should see an HTML form with the fields "First name", "Last name" and "Address".
+There should also be a list of user at the bottom of the page with 3 famous people in it.
+
+Input a first name, a last name and an address, then click on the submit button to append a new user to the database.
+The user should then appear in the user table.
+
+# Instructions
+Finally, we can code! The code in UserController.php is, well, no great. Let's put it that way :).
+Please refactor it in a way that would make it suitable for running on a production environment by following best practices.
+
+Notes:
+- You can use any features of PHP <= 8.2
+- You do not have to change the look and feel of the interface, but you are allowed to change the user.html.twig file to match any changes in the controller
+- You are free to change whatever you want
+- For your own good, please try to finish this test within 2 hours
+- Make sure the code works before sending it back, if you don't have time to implement everything, just comment what you would have liked to implement
+
